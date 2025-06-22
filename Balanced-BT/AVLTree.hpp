@@ -6,7 +6,11 @@ class AVLTree
 {
 public:
 	AVLTree() {};
-	~AVLTree() {};
+	~AVLTree() 
+	{
+		clear(_root);
+	};
+
 
 	void printInOrder(const Node* root)
 	{
@@ -70,6 +74,15 @@ public:
 
 private:
 	Node* _root = nullptr; // 根节点指针
+
+	void clear(Node* root)
+	{
+		if (root == nullptr)return;
+		clear(root->_left);
+		clear(root->_right);
+		delete root;
+
+	}
 };
 
 
