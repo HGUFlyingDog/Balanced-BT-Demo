@@ -18,18 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="AVLTree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AVLTree.h">
+    <ClInclude Include="AVLTree.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="Node.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

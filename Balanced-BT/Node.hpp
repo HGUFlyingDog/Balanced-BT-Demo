@@ -2,6 +2,7 @@
 #include<iostream>
 using std::cin;
 using std::cout;
+using std::endl;
 // 在污染全局命名空间和简化代码之间取得平衡
 
 // 先不考虑模板，专注于int类型
