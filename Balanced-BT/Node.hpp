@@ -13,7 +13,7 @@ class Node
     friend class AVLTree;// 这里使用了友元函数保证AVLTree类可以访问我的Node的私有成员
 public:
     Node(int key)
-        :_key(key), _left(nullptr), _right(nullptr),_height(1)
+        :_key(key), _left(nullptr), _right(nullptr), _bf(0),_parent(nullptr)
     {
     }
 
@@ -21,6 +21,7 @@ private:
     int _key;            // 键
     Node* _left;         // 左子树
     Node* _right;        // 右子树
-    int _height;         // 节点高度
+    Node* _parent;       // 父节点
+    int _bf;             // 平衡因子
 };
 
