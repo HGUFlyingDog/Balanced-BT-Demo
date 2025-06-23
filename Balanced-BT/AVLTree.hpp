@@ -131,6 +131,8 @@ private:
 			cur->_parent = pparent;// 旋转子树的父节点指向原来的父节点
 		}
 
+		cur->_bf = parent->_bf = 0;
 		
 	}
+
 };
