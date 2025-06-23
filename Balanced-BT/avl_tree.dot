@@ -1,0 +1,19 @@
+Æ½ºâ¶þ²æÊ÷µÄÍ¼Ïñ{
+  node [shape=circle, fontname="Arial"];
+  edge [arrowhead=none];
+  4 [label="4\nh=1"];
+  4 -> 2 [label="L"];
+  2 [label="2\nh=1"];
+  2 -> 1 [label="L"];
+  1 [label="1\nh=1"];
+  4 -> 8 [label="R"];
+  8 [label="8\nh=1"];
+  8 -> 5 [label="L"];
+  5 [label="5\nh=1"];
+  5 -> 6 [label="R"];
+  6 [label="6\nh=1"];
+  6 -> 7 [label="R"];
+  7 [label="7\nh=1"];
+  8 -> 9 [label="R"];
+  9 [label="9\nh=1"];
+}
