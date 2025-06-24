@@ -89,10 +89,27 @@ public:
 			{
 				// 子树出现问题需要旋转
 				// 左旋 RR 对应的 特点是失衡节点的平衡因子是-2，失衡节点的右孩子的平衡因子是-1
-				if (true)
+				if (prev->_bf == -2 && prev->_right->_bf == -1)// RR
 				{
 					RotateL(prev);
 				}
+				if (prev->_bf == -2 && prev->_right->_bf == -1)// LL
+				{
+					RotateR(prev);
+				}
+				if (prev->_bf == 2 && prev->_right->_bf == -1)// LR
+				{
+					RotateLR(prev);
+				}
+				if (prev->_bf == -2 && prev->_right->_bf == 1)// RL
+				{
+					RotateRL(prev);
+				}
+				if (prev->_bf == -2 && prev->_right->_bf == -1)
+				{
+					RotateL(prev);
+				}
+
 			}
 			else
 			{
@@ -111,7 +128,7 @@ private:
 		Node* curleft = cur->_left;
 
 		parent->_right = cur->_left;//冲突的左孩子变成右孩子
-		cur->_left = parent; 
+		cur->_left = parent;
 		parent->_parent = cur; // 旋转 cur的左孩子变成原来的parent
 		if (curleft != nullptr)
 		{
@@ -120,7 +137,7 @@ private:
 
 		if (pparent != nullptr)// 传入节点的父节点指向旋转子树的父节点
 		{
-			if (parent== pparent->_left)
+			if (parent == pparent->_left)
 			{
 				pparent->_left = cur;
 			}
@@ -132,7 +149,56 @@ private:
 		}
 
 		cur->_bf = parent->_bf = 0;
-		
 	}
 
+	void RotateR(Node* parent)//失衡节点进行右旋
+	{
+		Node* pparent = parent->_parent;
+		Node* cur = parent->_left;
+		Node* curright = cur->_right;
+
+		parent->_left = curright;
+		cur->_right = parent;
+		if (curright != nullptr)
+		{
+			curright->_parent = parent;
+		}
+		parent->_parent = cur;
+		if (parent == pparent->_left)
+		{
+			cur = pparent->_left;
+		}
+		else
+		{
+			cur = pparent->_right;
+		}
+		cur->_parent = pparent;
+
+
+	}
+	void RotateRL(Node* parent)// 操作就是对右旋右孩子然后左旋
+	{
+		Node* Rchild = parent->_right;
+		RotateR(Rchild);
+		RotateL(parent);
+
+		// 处理平衡因子
+		// 如果右孩子的平衡因子==0说明右孩子是新插入的节点
+		// 如果右孩子的平衡因子==1说明右孩子的左孩子是新插入的节点
+		// 如果右孩子的平衡因子==-1说明右孩子的右孩子是新插入的节点
+
+
+
+
+
+	}
+	void RotateLR(Node* parent)// 操作就是对左旋左孩子然后右旋
+	{
+		Node* Lchild = parent->_left;
+		RotateR(Lchild);
+		RotateL(parent);
+
+
+
+	}
 };
