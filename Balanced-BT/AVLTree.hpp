@@ -229,6 +229,11 @@ private:
 		Node* Rchild = parent->_right;
 		Node* RLchild = Rchild->_left;
 
+
+		//BUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		int bf = RLchild->_bf;
+		// 这里会导致bf被修改，会导致一些奇怪的bug
+
 		// 先对右孩子右旋
 		RotateR(Rchild);
 		// 再对parent左旋
@@ -236,11 +241,11 @@ private:
 
 		// 旋转后平衡因子的调整
 		// RLchild 旋转前的 _bf 决定了 parent 和 Rchild 的新 _bf
-		if (RLchild->_bf == 1) {
+		if (bf == 1) {
 			parent->_bf = 0;
 			Rchild->_bf = -1;
 		}
-		else if (RLchild->_bf == -1) {
+		else if (bf == -1) {
 			parent->_bf = 1;
 			Rchild->_bf = 0;
 		}
@@ -258,18 +263,24 @@ private:
 		Node* Lchild = parent->_left;
 		Node* LRchild = Lchild->_right;
 
+		//BUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		int bf = LRchild->_bf;
+
+
 		// 先对左孩子左旋
 		RotateL(Lchild);
 		// 再对parent右旋
 		RotateR(parent);
 
+
+
 		// 旋转后平衡因子的调整
 		// 根据LRchild的_bf调整parent和Lchild的_bf
-		if (LRchild->_bf == 1) {
+		if (bf == 1) {
 			parent->_bf = 0;
 			Lchild->_bf = -1;
 		}
-		else if (LRchild->_bf == -1) {
+		else if (bf == -1) {
 			parent->_bf = 1;
 			Lchild->_bf = 0;
 		}

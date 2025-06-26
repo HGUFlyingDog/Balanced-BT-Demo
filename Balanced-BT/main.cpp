@@ -63,13 +63,13 @@ void runDefaultTest(AVLTree& tree) {
 
 int main()
 {
-	/*AVLTree tree;
+	AVLTree tree;
 
 	std::vector<int> test{ 14,9,5,17,11,12,7,19,27,8,18,23 };
 
 	for (auto ch:test)
 	{
-		tree.insert(ch);
+    		tree.insert(ch);
 	}
 
 	tree.printTree();
@@ -77,10 +77,10 @@ int main()
 	tree.remove(5);
 
 	cout << endl << endl << endl << endl << endl << endl << endl;
-	tree.printTree();*/
+	tree.printTree();
 
 
-    AVLTree tree;
+    /*AVLTree tree;
     int choice = -1;
 
     while (choice != 0) {
@@ -96,6 +96,6 @@ int main()
         case 0: cout << "程序已退出\n"; break;
         default: cout << "无效选择，请重新输入！\n";
         }
-    }
+    }*/
 	return 0;
 }
