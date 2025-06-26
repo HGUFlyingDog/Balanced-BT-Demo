@@ -122,3 +122,9 @@
 3. 右孩子的父节点变成parent
 4. 处理cur和pparent的关系
 5. 更新平衡节点
+
+
+
+# debug部分
+
+![image-20250626155601807](./README.assets/image-20250626155601807.png)
