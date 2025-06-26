@@ -1,6 +1,92 @@
 #pragma once
 #include<iostream>
 #include"Node.hpp"
+
+class AVLTree
+{
+
+public:
+	AVLTree() {};
+	~AVLTree()
+	{
+		clear(_root);
+	};
+
+	void printInOrder(const Node* root) const
+	{
+		if (root == nullptr) return;
+		printInOrder(root->_left);
+		cout << root->_key << " ";
+		printInOrder(root->_right);
+	}
+
+	void print() const
+	{
+		printInOrder(_root);
+		cout << endl;
+	}
+
+	//插入一个值
+	void insert(int key)
+	{
+		cout << "现在插入的节点是：" << key << endl;
+		if (_root == nullptr)
+		{
+			_root = new Node(key);
+			return;
+		}
+		Node* cur = _root;
+		Node* prev = cur;
+
+		while (cur != nullptr)
+		{
+			if (key < cur->_key)// 向左插入
+			{
+				prev = cur;
+				cur = cur->_left;
+			}
+			else if (key > cur->_key)// 向右插入
+			{
+				prev = cur;
+				cur = cur->_right;
+			}
+			else
+			{
+				cout << "插入" << key << "失败，因为有重复的节点" << endl;
+				return;
+			}
+		}
+
+		cur = new Node(key);
+		if (key < prev->_key)
+		{
+			prev->_left = cur;
+		}
+		if (key > prev->_key)
+		{
+			prev->_right = cur;
+		}
+
+		this->print();
+	}
+
+
+
+private:
+	Node* _root = nullptr; // 根节点指针
+
+	void clear(Node* root)
+	{
+		if (root == nullptr)return;
+		clear(root->_left);
+		clear(root->_right);
+		delete root;
+	}
+};
+
+#pragma once
+#include<iostream>
+#include"Node.hpp"
 #include<vector>
 
 class AVLTree
