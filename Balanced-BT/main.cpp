@@ -62,6 +62,8 @@ void runDefaultTest(AVLTree& tree) {
     for (int val : test) {
         cout << val << " ";
         tree.insert(val);
+        cout << endl << endl << endl << endl << endl;
+        tree.printTree();
     }
 
     cout << "\n最终树结构:\n";
@@ -147,7 +149,6 @@ int main()
     AVLTree tree;
     int choice = 0;
 
-    cout << "=== AVL平衡二叉树演示程序 ===\n";
 
 
     do {
