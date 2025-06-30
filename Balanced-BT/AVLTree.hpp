@@ -13,12 +13,13 @@ public:
 		clear(); // 析构时清空树
 	};
 
-	void splitTree( int x)
+	// 传入一个键值，根据键值分离两颗二叉树
+	void splitTree(int x)
 	{
 		AVLTree tree1;
 		AVLTree tree2;
 		std::vector<int> key;
-		extractValues(_root, key);
+		extractValues(_root, key);// 导入二叉树的数值
 
 		for (auto ch : key)
 		{
@@ -26,6 +27,8 @@ public:
 		}
 		cout << endl;
 
+
+		// 通过比较来传入数据
 		for (auto ch : key)
 		{
 			if (x < ch)
@@ -45,7 +48,6 @@ public:
 		cout << "tree2:" << endl;
 
 		tree2.printTree();
-
 	}
 
 	// 合并另一棵AVL树到当前树
@@ -111,11 +113,9 @@ public:
 			}
 		}
 
-
 		try
 		{
 			cur = new Node(key);// 这里就是找到了插入的部分，新建节点然后开始插入，调用的是Node的构造函数
-
 		}
 		catch (const std::exception& e)
 		{
@@ -164,7 +164,7 @@ public:
 				cur = parent;
 				parent = parent->_parent;
 			}
-			else if (abs(parent->_bf) == 2)		
+			else if (abs(parent->_bf) == 2)
 				// 子树出现问题需要旋转
 				// 左旋 RR 对应的 特点是失衡节点的平衡因子是-2，失衡节点的右孩子的平衡因子是-1
 
@@ -281,7 +281,6 @@ private:
 
 		cur->_bf = parent->_bf = 0;
 	}
-
 
 	// 右旋操作
 	//这个就是右旋的操作，跟左旋差不多，就是顺序换一下，要求传入一个Node*的节点实施旋转功能，结果就是部分的结构被旋转了
