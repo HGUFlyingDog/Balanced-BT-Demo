@@ -12,6 +12,41 @@ public:
 		clear();
 	};
 
+	void splitTree( int x)
+	{
+		AVLTree tree1;
+		AVLTree tree2;
+		std::vector<int> key;
+		extractValues(_root, key);
+
+		for (auto ch : key)
+		{
+			cout << ch << " ";
+		}
+		cout << endl;
+
+		for (auto ch : key)
+		{
+			if (x < ch)
+			{
+				tree1.insert(ch);
+			}
+			else
+			{
+				tree2.insert(ch);
+			}
+		}
+
+		cout << "tree1:" << endl;
+		tree1.printTree();
+
+		cout << endl << endl << endl << endl;
+		cout << "tree2:" << endl;
+
+		tree2.printTree();
+
+	}
+
 	void merge(AVLTree& other) {
 		if (other._root == nullptr) return; // 另一棵树为空，无需合并
 

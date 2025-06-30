@@ -17,6 +17,7 @@ void showMenu() {
     cout << "5. 打印中序遍历\n";
     cout << "6. 运行默认测试\n";
     cout << "7. 合并两棵平衡二叉树\n";
+    cout << "8. 分裂为两棵平衡二叉树\n";
     cout << "0. 退出\n";
     cout << "请选择操作: ";
 }
@@ -148,8 +149,7 @@ int main()
 
     AVLTree tree;
     int choice = 0;
-
-
+    int key = 0;
 
     do {
         showMenu();
@@ -182,6 +182,11 @@ int main()
         case 7:
             handleMerge(tree);
             break;
+        case 8:
+            cout << "请输入分裂的中心值" << endl;
+            cin >> key;
+            tree.splitTree(key);
+
         case 0:
             cout << "程序已退出，感谢使用！\n";
             break;
