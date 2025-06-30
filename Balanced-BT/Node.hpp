@@ -19,10 +19,10 @@ public:
     }
 
 private:
-    int _key;            // 键
-    Node* _left;         // 左子树
-    Node* _right;        // 右子树
-    Node* _parent;       // 父节点
-    int _bf;             // 平衡因子
+    int _key;            // 键（节点存储的值）
+    Node* _left;         // 左子树指针
+    Node* _right;        // 右子树指针
+    Node* _parent;       // 父节点指针
+    int _bf;             // 平衡因子（左高+1，右高-1，平衡0）
 };
 
